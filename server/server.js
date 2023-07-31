@@ -16,14 +16,14 @@ app.listen(port, function() {
   console.log('listening on port', port);
 })
 
-app.get('/numbers', function(req, res){
+app.get('/equation', function(req, res){
   console.log('Request for /quotes was made');
 
   res.send(problemToSolve)
 })
 
 
-app.post('/numbers', (req, res) => {
+app.post('/equation', (req, res) => {
   console.log('get a POST request.', req.body);
 
   let equation = req.body

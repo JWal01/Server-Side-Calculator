@@ -1,7 +1,17 @@
 console.log("Script Running");
 
+let operator;
+
+
+
+
+
+
+
+
+
 function getEquation(){
-  axios.get('/numbers').then((response) => {
+  axios.get('/equation').then((response) => {
     console.log("success" , response);
     let equationFromServer =  response.data 
     renderToDom(equationFromServer)
@@ -25,28 +35,68 @@ function renderToDom(equations){
 
 
 
-function submitForm(event){
-  event.preventDefault();
-  let num1 = document.querySelector('#num1').value
-  let operator = document.querySelector('#operator').value
-  let num2 = document.querySelector('#num2').value
+// function submitForm(){
+//   console.log("inSubmitForm");
+//   let num1 = document.querySelector('#num1').value;
+//   let num2 = document.querySelector('#num2').value;
+//   console.log(num1,num2);
+// }
 
-  let equation = {
-    Number1: num1,
-    Operator: operator,
-    Number2: num2
+function operatorGet(){
+  console.log("operatorClicked");
+  let operator = document.getElementById("operator");
+  console.log(operator.value);
+}
+
+function submitProblem(event){
+  //event.preventDefault();
+  let num1 = document.querySelector('#num1').value;
+  let num2 = document.querySelector('#num2').value;
+  let operator = document.getElementById("operator");
+
+  let problemToSolve = {
+    num1: num1,
+    num2: num2,
+    operator: operator.value
   }
-  console.log(equation);
+  console.log(problemToSolve);
 
-  axios.post('/numbers', equation).then((response) => {
+  axios.post('/equation', problemToSolve).then((response) => {
     console.log(response);
     document.querySelector('#num1').value = '';
-    document.querySelector('#operator').value = '';
     document.querySelector('#num2').value = '';
-    getEquation();
+
+    getQuotes();
 
   }) .catch((error) => {
     console.log(error);
     alert('Something Went Wrong')
   })
 }
+
+
+
+
+//   let num1 = document.querySelector('#num1').value
+//   let operator = document.querySelector('#operator').value
+//   let num2 = document.querySelector('#num2').value
+
+//   let equation = {
+//     num1: num1,
+//     num2: num2,
+//     operator: operator
+//   }
+//   console.log(equation);
+
+//   axios.post('/numbers', equation).then((response) => {
+//     console.log(response);
+//     document.querySelector('#num1').value = '';
+//     document.querySelector('#operator').value = '';
+//     document.querySelector('#num2').value = '';
+//     getEquation();
+
+//   }) .catch((error) => {
+//     console.log(error);
+//     alert('Something Went Wrong')
+//   })
+// }

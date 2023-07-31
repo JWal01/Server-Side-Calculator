@@ -7,22 +7,26 @@
 </head>
 <body>
   <h1> Server Side Calculator</h1>
- 
-    <form onsubmit="submitForm(event)">
-      <input type="number" id="num1">
-      <button id="operator">+</button>
-      <button id="operator">-</button>
-      <button id="operator">*</button>
-      <button  id="operator">/</button>
-      <input type="number" id="num2">
-      <button id="equals" type="submit">=</button>
-      <button onclick="clearForm(event)" id="clear">C</button>
-    </form>
+  <main>
+
+    <div id="input-area">
+      <input type="text" placeholder="num1" id="num1"/>
+      
+      <button value="+" type="text" onclick="operatorGet()" id="operator" >+</button>
+      <button value="-" type="text" onclick="operatorGet()" id="operator" >-</button>
+      <button value="*" type="text" onclick="operatorGet()" id="operator" >*</button>
+      <button value="/" type="text" onclick="operatorGet()" id="operator" >/</button>
+      
+      <input type="text" placeholder="num2" id="num2"/> 
+      <button onclick="submitProblem()" id="submit">=</button>
+      <button>C</button>
+    </div>
     
-  
+
   <div id="answer">
     <ul id="equation"></ul>
   </div>
+</main>
   
   
 
