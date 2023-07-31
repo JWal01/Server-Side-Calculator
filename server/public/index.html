@@ -7,24 +7,27 @@
 </head>
 <body>
   <h1> Server Side Calculator</h1>
-
-  <div class="calculator__keys">
-
-    <button class="key--operator" data-action="add">+</button>
-    <button class="key--operator" data-action="subtract">-</button
-   <button class = "key--operator" data-action="multiply"> *</button>
-    <button class="key--operator" data-action="divide">÷</button>
-
-
-
-
+ 
+    <form onsubmit="submitForm(event)">
+      <input type="number" id="num1">
+      <button id="operator">+</button>
+      <button id="operator">-</button>
+      <button id="operator">*</button>
+      <button  id="operator">/</button>
+      <input type="number" id="num2">
+      <button id="equals" type="submit">=</button>
+      <button onclick="clearForm(event)" id="clear">C</button>
+    </form>
+    
+  
+  <div id="answer">
+    <ul id="equation"></ul>
   </div>
+  
+  
 
-
-</form>
-
-
-
+ 
+  
 
 
 
