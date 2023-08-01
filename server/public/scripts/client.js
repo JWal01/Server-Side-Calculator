@@ -59,7 +59,12 @@ function submitProblem(event){
   // event.preventDefault();
   let num1 = document.querySelector('#num1').value;
   let num2 = document.querySelector('#num2').value;
-  let operator = document.getElementById("operator");
+ 
+  function alertEvent(e){ 
+    console.log("operator", e.target.innerHTML);
+    operator = e.target.innerHTML;
+    
+  } 
 
   let problemToSolve = {
     num1: num1,
