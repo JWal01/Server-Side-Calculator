@@ -22,25 +22,20 @@ function getEquation(){
 
 }
 
-function renderToDom(equations){
-  let outputList = document.querySelector('#equation')
-  outputList.innerHTML = ''
-  for(let equation of equations){
-    outputList.innerHTML += `
-    <p> ${equation.num1} - ${equation.operator} - ${equation.num2} </p>
-    `
-  }
-}
-
-
-
-
-// function submitForm(){
-//   console.log("inSubmitForm");
-//   let num1 = document.querySelector('#num1').value;
-//   let num2 = document.querySelector('#num2').value;
-//   console.log(num1,num2);
+// function renderToDom(equations){
+//   let outputList = document.querySelector('#equation')
+//   outputList.innerHTML = ''
+//   for(let equation of equations){
+//     outputList.innerHTML += `
+//     <p> ${equation.num1} - ${equation.operator} - ${equation.num2} </p>
+//     `
+//   }
 // }
+
+
+
+
+
 
 function operatorGet(){
   console.log("operatorClicked");
@@ -49,7 +44,7 @@ function operatorGet(){
 }
 
 function submitProblem(event){
-  //event.preventDefault();
+  // event.preventDefault();
   let num1 = document.querySelector('#num1').value;
   let num2 = document.querySelector('#num2').value;
   let operator = document.getElementById("operator");
@@ -66,7 +61,7 @@ function submitProblem(event){
     document.querySelector('#num1').value = '';
     document.querySelector('#num2').value = '';
 
-    getQuotes();
+    // getQuotes();
 
   }) .catch((error) => {
     console.log(error);
