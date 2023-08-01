@@ -1,6 +1,6 @@
 console.log("Script Running");
 
-let operator;
+
 
 
 
@@ -33,15 +33,27 @@ function getEquation(){
 // }
 
 
+// function operatorGet(event){
+//   event.preventDefault();
+//   console.log("operator clicked");
+// let operator = document.getElementById("operator");
+// operator.addEventListener("input", (event) => {
+//     console.log(event.target)
+//     console.log(event.target.value)
+//  })
+// }
+function alertEvent(e){ 
+  console.log("operator", e.target.innerHTML);
+  operator = e.target.innerHTML;
+  
+} 
 
 
-
-
-function operatorGet(){
-  console.log("operatorClicked");
-  let operator = document.getElementById("operator");
-  console.log(operator.value);
-}
+// function operatorGet(event){
+//   console.log("operatorClicked");
+//   let operator = document.getElementById("operator");
+//   console.log(operator.value);
+// }
 
 function submitProblem(event){
   // event.preventDefault();
@@ -52,7 +64,7 @@ function submitProblem(event){
   let problemToSolve = {
     num1: num1,
     num2: num2,
-    operator: operator.value
+    operator: operator
   }
   console.log(problemToSolve);
 
