@@ -1,6 +1,6 @@
 console.log("Script Running");
 let operator = '';
-
+let answer = Number();
 
 
 
@@ -24,10 +24,10 @@ function getEquation(){
 
 function renderToDom(equations){
   let outputList = document.querySelector('#equation')
-  outputList.innerHTML = ''
+  // outputList.innerHTML = ''
   for(let equation of equations){
-    outputList.innerHTML += `
-    <p> ${equation.num1}  ${equation.operator} ${equation.num2} </p>
+    outputList.innerHTML = `
+    <p> ${equation.num1}  ${equation.operator} ${equation.num2} =  ${equation.answer}</p>
     `
   }
 }
@@ -53,7 +53,9 @@ function submitProblem(event){
   let problemToSolve = {
     num1: num1,
     num2: num2,
-    operator: operator
+    operator: operator,
+    answer: answer
+    
   }
   console.log(problemToSolve);
 
@@ -61,6 +63,8 @@ function submitProblem(event){
     console.log(response);
     document.querySelector('#num1').value = '';
     document.querySelector('#num2').value = '';
+    document.querySelector('#answer').value = '';
+
 
   getEquation();
 
@@ -69,6 +73,7 @@ function submitProblem(event){
     alert('Something Went Wrong')
   })
 }
+
 
 
 

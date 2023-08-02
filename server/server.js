@@ -25,9 +25,10 @@ app.get('/equation', function(req, res){
 
 app.post('/equation', (req, res) => {
   console.log('get a POST request /equation', req.body);
-  let num1 = req.body.num1;
-  let num2 = req.body.num2;
+  let num1 = Number(req.body.num1);
+  let num2 = Number(req.body.num2);
   let operator = req.body.operator;
+  let answer;
 
   switch(operator){
     case '+':
@@ -38,16 +39,23 @@ app.post('/equation', (req, res) => {
       break;
     case '*':
       answer = num1 * num2; 
+      break;
     case '/':
       answer = num1 / num2;     
   }
   console.log(answer);
-
-  let equation = req.body
-  problemToSolve.push(equation)
-  res.sendStatus(201);
+  
+  // let equation = req.body
+  problemToSolve.push({
+    num1: num1,
+    num2: num2,
+    operator: operator,
+    answer: answer
+  
 })
-
+console.log(problemToSolve);
+res.sendStatus(201);
+});
 // let result;
 
 // if (operator === '+') {
