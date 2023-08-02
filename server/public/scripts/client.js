@@ -1,5 +1,5 @@
 console.log("Script Running");
-
+let operator = '';
 
 
 
@@ -22,38 +22,23 @@ function getEquation(){
 
 }
 
-// function renderToDom(equations){
-//   let outputList = document.querySelector('#equation')
-//   outputList.innerHTML = ''
-//   for(let equation of equations){
-//     outputList.innerHTML += `
-//     <p> ${equation.num1} - ${equation.operator} - ${equation.num2} </p>
-//     `
-//   }
-// }
+function renderToDom(equations){
+  let outputList = document.querySelector('#equation')
+  outputList.innerHTML = ''
+  for(let equation of equations){
+    outputList.innerHTML += `
+    <p> ${equation.num1}  ${equation.operator} ${equation.num2} </p>
+    `
+  }
+}
 
 
-// function operatorGet(event){
-//   event.preventDefault();
-//   console.log("operator clicked");
-// let operator = document.getElementById("operator");
-// operator.addEventListener("input", (event) => {
-//     console.log(event.target)
-//     console.log(event.target.value)
-//  })
-// }
 function alertEvent(e){ 
   console.log("operator", e.target.innerHTML);
   operator = e.target.innerHTML;
   
 } 
 
-
-// function operatorGet(event){
-//   console.log("operatorClicked");
-//   let operator = document.getElementById("operator");
-//   console.log(operator.value);
-// }
 
 function submitProblem(event){
   // event.preventDefault();
@@ -63,7 +48,6 @@ function submitProblem(event){
   function alertEvent(e){ 
     console.log("operator", e.target.innerHTML);
     operator = e.target.innerHTML;
-    
   } 
 
   let problemToSolve = {
@@ -78,7 +62,7 @@ function submitProblem(event){
     document.querySelector('#num1').value = '';
     document.querySelector('#num2').value = '';
 
-    // getQuotes();
+  getEquation();
 
   }) .catch((error) => {
     console.log(error);

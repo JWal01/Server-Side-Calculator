@@ -24,9 +24,38 @@ app.get('/equation', function(req, res){
 
 
 app.post('/equation', (req, res) => {
-  console.log('get a POST request.', req.body);
+  console.log('get a POST request /equation', req.body);
+  let num1 = req.body.num1;
+  let num2 = req.body.num2;
+  let operator = req.body.operator;
+
+  switch(operator){
+    case '+':
+      answer = num1 + num2;
+      break;
+    case '-':
+      answer = num1 - num2;
+      break;
+    case '*':
+      answer = num1 * num2; 
+    case '/':
+      answer = num1 / num2;     
+  }
+  console.log(answer);
 
   let equation = req.body
   problemToSolve.push(equation)
   res.sendStatus(201);
 })
+
+// let result;
+
+// if (operator === '+') {
+//     result = num1 + num2;
+// } else if (operator === '-') {
+//     result = num1 - num2;
+// } else if (operator === '*') {
+//     result = num1 * num2;
+// } else {
+//     result = num1 / num2;
+// }console.log(result);
